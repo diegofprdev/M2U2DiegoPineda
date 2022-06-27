@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Calculo Numérico</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <h2>Cálculo Numérico</h2>
+            <small>Ingrese los valores númericos para realizar el cálculo requerido</small>
+            <form id="form-calculator">
+                <input class="input" type="number" />
+                <input class="input" type="number" />
+                <input class="input" type="number" />
+                <input class="input" type="number" />
+                <button type="submit" class="btn">Calcular</button>
+                <div style="display: none;" id="result" class="result">
+                    <small>Resultado:</small>
+                    <br />
+                    <small>Número menor: <span id="min-number"></span></small>
+                    <br />
+                    <small>Número mayor: <span id="max-number"></span></small>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>

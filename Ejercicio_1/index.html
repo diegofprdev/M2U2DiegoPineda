@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Matricula Estudiante</title>
+</head>
+
+<body>
+    <h1 class="title is-3 has-text-centered pt-6">Matricula de Estudiantes</h1>
+    <div class="notification is-link is-light ml-6 mr-6">
+        <strong>Importante:</strong>
+        <p>Al momento de realizar la matrícula debe de tener el cuenta los costos fijos que se aplicarán sobre ella, los
+            cuales se especifican a continuación:</p>
+        <p>Papelería: <strong>$20.000</strong></p>
+        <p>Carné: <strong>$8.000</strong></p>
+        <hr />
+        <p>También es importante tener en cuenta que se aplicará el <strong>20%</strong> de descuento sobre el costo de
+            las materias matriculadas.</p>
+    </div>
+    <div class="card m-6">
+        <div class="card-header">
+            <h1 class="title is-5 has-text-centered p-4">
+                Matrícula de Estudiantes Periodo 2022-2
+            </h1>
+        </div>
+        <div class="card-content">
+            <div class="columns">
+                <div class="column"></div>
+                <div class="column is-two-fifths">
+                    <div class="field">
+                        <label class="label has-text-centered">Nombre Completo:</label>
+                        <div class="control">
+                            <input id="name-student" class="input is-info" type="text"
+                                placeholder="Nombre Completo del Estudiante...">
+                        </div>
+                    </div>
+                </div>
+                <div class="column"></div>
+            </div>
+            <hr />
+            <div class="columns">
+                <div class="column"></div>
+                <div class="column is-four-fifths">
+                    <div class="columns">
+                        <div class="column"></div>
+                        <div class="column is-one-third">
+                            <div class="field">
+                                <label class="label has-text-centered">Asignatura:</label>
+                                <div class="control">
+                                    <input id="name-course" class="input is-info" type="text"
+                                        placeholder="Nombre de la Asignatura...">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-one-third">
+                            <div class="field">
+                                <label class="label has-text-centered">Precio (COP):</label>
+                                <div class="control">
+                                    <input id="price-course" class="input is-info" type="number"
+                                        placeholder="Precio de la Asignatura...">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-one-third">
+                            <div class="field">
+                                <label class="label has-text-centered">&nbsp;</label>
+                                <div class="control">
+                                    <button id="add-course" class="button is-link is-fullwidth">Agregar
+                                        Asignatura</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column"></div>
+                    </div>
+                </div>
+                <div class="column"></div>
+            </div>
+            <hr />
+            <h1 class="title is-5 has-text-centered p-4">
+                Listado de Asignaturas Registradas
+            </h1>
+            <div class="columns">
+                <div class="column is-full">
+                    <table class="table is-fullwidth">
+                        <thead>
+                            <tr>
+                                <th class="has-text-centered">Asignatura</th>
+                                <th class="has-text-centered">Precio</th>
+                                <th class="has-text-centered">Estado</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th class="has-text-centered">Asignatura</th>
+                                <th class="has-text-centered">Precio</th>
+                                <th class="has-text-centered">Estado</th>
+                            </tr>
+                        </tfoot>
+                        <tbody id="list-of-courses">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="notification is-link">
+                Costo Total de la Matrícula: <strong id="total-price"></strong>
+            </div>
+            <div class="has-text-centered">
+                <button id="make-registration" class="button is-success">Realizar Matrícula</button>
+                <button id="new-registration" class="button is-warning">Nueva Matrícula</button>
+            </div>
+        </div>
+    </div>
+    <div style="display: none;" id="card-registered" class="card m-6">
+        <div class="card-header">
+            <h1 class="title is-5 has-text-centered p-4">
+                Matrícula Periodo 2022-2
+            </h1>
+        </div>
+        <div class="card-content">
+            <div class="columns">
+                <div class="column"></div>
+                <div class="column is-two-fifths">
+                    <div class="field">
+                        <label class="label has-text-centered">Nombre Completo:</label>
+                        <p id="name-student-registered" class="has-text-centered"></p>
+                    </div>
+                </div>
+                <div class="column"></div>
+            </div>
+            <hr />
+            <h1 class="title is-5 has-text-centered p-4">
+                Listado de Asignaturas Matriculadas
+            </h1>
+            <div class="columns">
+                <div class="column is-full">
+                    <table class="table is-fullwidth">
+                        <thead>
+                            <tr>
+                                <th class="has-text-centered">Asignatura</th>
+                                <th class="has-text-centered">Precio</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th class="has-text-centered">Asignatura</th>
+                                <th class="has-text-centered">Precio</th>
+                            </tr>
+                        </tfoot>
+                        <tbody id="list-of-courses-registered">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <hr />
+            <div class="notification">
+                <strong>Costos fijos:</strong>
+                <p>Papeleria: <strong>$20000</strong></p>
+                <p>Carné: <strong>$8000</strong></p>
+                <hr/>
+                <p>Costo Total de la Matrícula: <strong id="total-price-registered"></strong></p>
+            </div>
+            <div>
+                <button id="close-card-registered" class="button is-danger">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>
